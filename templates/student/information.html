@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        <title>Students Information</title>
+    {% endblock %}
+
+{% block body %}
+
+    <div class="container text-lg-center">
+        <h3>Student Table</h3>
+        <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Session</th>
+            <th>Action</th>
+        </tr>
+    <tbody>
+        {% for foo in stdInfo %}
+            <tr>
+                <td>{{ foo.id }}</td>
+                <td>{{ foo.name }}</td>
+                <td>{{ foo.email }}</td>
+                <td>{{ foo.phone }}</td>
+                <td>{{ foo.department }}</td>
+                <td>{{ foo.session }}</td>
+                <td>
+                    <a class="btn btn-secondary" href="{% url 'edit_student' foo.id%}" role="button">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'delete_student' foo.id%}" role="button">Delete</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{% url 'home' %}" role="button">Back</a>
+    <a class="btn btn-success" href="{% url 'add_student' %}" role="button">Add</a>
+
+    </div>
+
+
+
+{% endblock %}

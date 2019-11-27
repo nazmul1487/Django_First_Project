@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        <title>Home Page</title>
+    {% endblock %}
+
+{% block body %}
+        <center>
+            <p><h1>Welcome To Student Management System</h1></p>
+            <div>
+            <a class="btn btn-primary" href="{% url 'student_information' %}"  role = "button">Students</a>
+            </div>
+
+        </center>
+{% endblock %}
